@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+    <title>Feliz Aniversário, Amor! 💕</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="netflix-logo">
+            <span class="letter">A</span>
+            <span class="letter">M</span>
+            <span class="letter">O</span>
+            <span class="letter">R</span>
+            <span class="letter">E</span>
+            <span class="letter">S</span>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Feliz</span>
+                    <span class="title-line">Aniversário</span>
+                    <span class="title-line heart">Meu Amor! 💕</span>
+                </h1>
+                <p class="hero-subtitle">Nossa história de amor merece ser celebrada</p>
+                <button class="play-button" id="playButton">
+                    <div class="play-icon">▶</div>
+                    <span>Assistir Nossa História</span>
+                </button>
+            </div>
+            <div class="floating-hearts">
+                <div class="heart">💕</div>
+                <div class="heart">❤️</div>
+                <div class="heart">💖</div>
+                <div class="heart">💝</div>
+                <div class="heart">💗</div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section" id="videoSection">
+            <div class="video-container">
+                <div class="video-player" id="videoPlayer">
+                    <video id="mainVideo" controls style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <source src="./assets/videos/video1.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                    <div class="video-playlist" id="videoPlaylist" style="display: none;">
+                        <h3>Nossa História em Vídeos</h3>
+                        <div class="playlist-items">
+                            <div class="playlist-item active" data-video="./assets/videos/video1.mp4">
+                                <span class="video-number">01</span>
+                                <span class="video-title">Primeiro Momento</span>
+                            </div>
+                            <div class="playlist-item" data-video="videos/video2.mp4">
+                                <span class="video-number">02</span>
+                                <span class="video-title">Nosso Amor</span>
+                            </div>
+                            <div class="playlist-item" data-video="videos/video3.mp4">
+                                <span class="video-number">03</span>
+                                <span class="video-title">Continuação do 2</span>
+                        </div>
+                    </div>
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <div class="video-icon">🎬</div>
+                        <h3>Nossa História de Amor</h3>
+                        <p>Clique em "Assistir Nossa História" para começar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">Nossos Momentos</h2>
+                <div class="netflix-rows">
+                    <!-- Row 1: Primeiros Momentos -->
+                    <div class="netflix-row">
+                        <h3 class="row-title">Primeiros Momentos</h3>
+                        <div class="row-content">
+                            <div class="photo-card" data-title="Primeiro Encontro" data-description="O dia que mudou nossas vidas">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.33.35.jpeg" alt="Primeiro Encontro">
+                                <div class="card-info">
+                                    <h4>Primeiro Encontro</h4>
+                                    <p>O começo de tudo</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Primeira Foto Juntos" data-description="Nosso primeiro registro">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.33.35 (1).jpeg" alt="Primeira Foto">
+                                <div class="card-info">
+                                    <h4>Primeira Foto</h4>
+                                    <p>Momento</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Juntos Sempre" data-description="Nosso amor crescendo">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.33.42.jpeg" alt="Juntos">
+                                <div class="card-info">
+                                    <h4>Juntos Sempre</h4>
+                                    <p>Inesquecível</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Momentos Únicos" data-description="Celebrando nosso amor">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.33.43.jpeg" alt="Momentos">
+                                <div class="card-info">
+                                    <h4>Momentos </h4>
+                                    <p>Comemorando</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Nossas Aventuras -->
+                    <div class="netflix-row">
+                        <h3 class="row-title">Nossas Aventuras</h3>
+                        <div class="row-content">
+                            <div class="photo-card" data-title="Explorando Juntos" data-description="Descobrindo o mundo a dois">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.33.43 (1).jpeg" alt="Explorando">
+                                <div class="card-info">
+                                    <h4>Explorando Juntos</h4>
+                                    <p>Aventura a dois</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Momentos Felizes" data-description="Sorrisos e alegria">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.33.44.jpeg" alt="Felizes">
+                                <div class="card-info">
+                                    <h4>Momentos Felizes</h4>
+                                    <p>Pura alegria</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Nosso Cantinho" data-description="Lugar especial">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.34.57.jpeg" alt="Cantinho">
+                                <div class="card-info">
+                                    <h4>Nosso Cantinho</h4>
+                                    <p>Lugar do coração</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Diversão" data-description="Rindo juntos">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.34.57 (1).jpeg" alt="Diversão">
+                                <div class="card-info">
+                                    <h4>Diversão</h4>
+                                    <p>Risadas garantidas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Momentos Especiais -->
+                    <div class="netflix-row">
+                        <h3 class="row-title">Momentos Únicos</h3>
+                        <div class="row-content">
+                            <div class="photo-card" data-title="Carinho" data-description="Demonstrações de amor">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.34.58.jpeg" alt="Carinho">
+                                <div class="card-info">
+                                    <h4>Carinho</h4>
+                                    <p>Amor verdadeiro</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Cumplicidade" data-description="Olhares apaixonados">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.34.59.jpeg" alt="Cumplicidade">
+                                <div class="card-info">
+                                    <h4>Cumplicidade</h4>
+                                    <p>Conexão única</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Abraços" data-description="Aconchego e proteção">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.00.jpeg" alt="Abraços">
+                                <div class="card-info">
+                                    <h4>Abraços</h4>
+                                    <p>Meu porto seguro</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Felicidade" data-description="Sorrisos sinceros">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.00 (1).jpeg" alt="Felicidade">
+                                <div class="card-info">
+                                    <h4>Felicidade</h4>
+                                    <p>Puro amor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Mais Memórias -->
+                    <div class="netflix-row">
+                        <h3 class="row-title">Mais Memórias</h3>
+                        <div class="row-content">
+                            <div class="photo-card" data-title="Nosso Estilo" data-description="Combinando sempre">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.01.jpeg" alt="Estilo">
+                                <div class="card-info">
+                                    <h4>Nosso Estilo</h4>
+                                    <p>Perfeita combinação</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Relaxando" data-description="Momentos de paz">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.02.jpeg" alt="Relaxando">
+                                <div class="card-info">
+                                    <h4>Relaxando</h4>
+                                    <p>Tranquilidade</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Aventuras" data-description="Sempre juntos">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.02 (1).jpeg" alt="Aventuras">
+                                <div class="card-info">
+                                    <h4>Aventuras</h4>
+                                    <p>Companheiros</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Nosso Amor" data-description="Eterno e verdadeiro">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.03.jpeg" alt="Amor">
+                                <div class="card-info">
+                                    <h4>Nosso Amor</h4>
+                                    <p>Para sempre</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 5: Últimas Memórias -->
+                    <div class="netflix-row">
+                        <h3 class="row-title">Memórias Recentes</h3>
+                        <div class="row-content">
+                            <div class="photo-card" data-title="Sorrisos" data-description="Alegria constante">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.04.jpeg" alt="Sorrisos">
+                                <div class="card-info">
+                                    <h4>Sorrisos</h4>
+                                    <p>Felicidade pura</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Companheirismo" data-description="Lado a lado sempre">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.04 (1).jpeg" alt="Companheirismo">
+                                <div class="card-info">
+                                    <h4>Companheirismo</h4>
+                                    <p>Melhores amigos</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Diversão Garantida" data-description="Nunca falta alegria">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.05.jpeg" alt="Diversão">
+                                <div class="card-info">
+                                    <h4>Diversão Garantida</h4>
+                                    <p>Risadas infinitas</p>
+                                </div>
+                            </div>
+                            <div class="photo-card" data-title="Te Amo" data-description="Hoje e sempre">
+                                <img src="./assets/photos/WhatsApp Image 2025-10-07 at 23.35.06.jpeg" alt="Te Amo">
+                                <div class="card-info">
+                                    <h4>Te Amo</h4>
+                                    <p>Infinitamente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <h3>Te amo hoje e sempre! 💕</h3>
+                    <p>Que venham muitos anos de felicidade ao nosso lado</p>
+                    <div class="footer-hearts">
+                        <span>💖</span>
+                        <span>💕</span>
+                        <span>❤️</span>
+                        <span>💗</span>
+                        <span>💝</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photoModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="modal-photo">
+                <img id="modalImage" src="" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle">Título da Foto</h3>
+                <p id="modalDescription">Descrição da foto</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

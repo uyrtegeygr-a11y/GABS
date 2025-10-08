@@ -1,0 +1,637 @@
+/* Reset e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.netflix-logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.netflix-logo .letter {
+    display: inline-block;
+    color: #E50914;
+    animation: letterPop 0.6s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.netflix-logo .letter:nth-child(1) { animation-delay: 0.1s; }
+.netflix-logo .letter:nth-child(2) { animation-delay: 0.2s; }
+.netflix-logo .letter:nth-child(3) { animation-delay: 0.3s; }
+.netflix-logo .letter:nth-child(4) { animation-delay: 0.4s; }
+.netflix-logo .letter:nth-child(5) { animation-delay: 0.5s; }
+.netflix-logo .letter:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes letterPop {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading-bar {
+    width: 300px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #E50914, #ff6b6b);
+    width: 0%;
+    animation: loadingProgress 3s ease-in-out forwards;
+}
+
+@keyframes loadingProgress {
+    to {
+        width: 100%;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E50914 0%, #000000 50%, #E50914 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.title-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: titleSlideUp 1s ease-out forwards;
+}
+
+.title-line:nth-child(1) { animation-delay: 0.5s; }
+.title-line:nth-child(2) { animation-delay: 0.7s; }
+.title-line:nth-child(3) { animation-delay: 0.9s; }
+
+.title-line.heart {
+    color: #E50914;
+    font-size: 3.5rem;
+    animation: titleSlideUp 1s ease-out forwards, heartPulse 2s ease-in-out 1.5s infinite;
+}
+
+@keyframes titleSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.2s forwards;
+    color: #cccccc;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.play-button {
+    background: linear-gradient(45deg, #E50914, #ff4757);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.3);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.5s forwards;
+}
+
+.play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(229, 9, 20, 0.5);
+    background: linear-gradient(45deg, #ff4757, #E50914);
+}
+
+.play-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-hearts .heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    animation: floatHeart 6s ease-in-out infinite;
+}
+
+.floating-hearts .heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts .heart:nth-child(2) {
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.floating-hearts .heart:nth-child(3) {
+    left: 70%;
+    animation-delay: 2s;
+}
+
+.floating-hearts .heart:nth-child(4) {
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.floating-hearts .heart:nth-child(5) {
+    left: 90%;
+    animation-delay: 4s;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Video Section */
+.video-section {
+    padding: 80px 20px;
+    background: #111111;
+}
+
+.video-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.video-player {
+    background: #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    aspect-ratio: 10/9;
+}
+
+.video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a, #000000);
+    color: #cccccc;
+    text-align: center;
+    padding: 40px;
+}
+
+.video-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #E50914;
+}
+
+.video-placeholder h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.video-placeholder p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 80px 20px;
+    background: #000000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #E50914;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.netflix-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.netflix-row {
+    width: 100%;
+}
+
+.row-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.row-content {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #E50914 #333;
+}
+
+.row-content::-webkit-scrollbar {
+    height: 8px;
+}
+
+.row-content::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+
+.row-content::-webkit-scrollbar-thumb {
+    background: #E50914;
+    border-radius: 4px;
+}
+
+.photo-card {
+    min-width: 250px;
+    height: 350px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.photo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+    z-index: 10;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info {
+    padding: 15px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    opacity: 0.8;
+}
+
+/* Photo Modal */
+.photo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 1001;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #E50914;
+}
+
+.modal-photo {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+}
+
+.modal-photo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.modal-info {
+    padding: 30px;
+    text-align: center;
+}
+
+.modal-info h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #E50914;
+}
+
+.modal-info p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #E50914, #000000);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.footer-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #cccccc;
+}
+
+.footer-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 2rem;
+}
+
+.footer-hearts span {
+    animation: heartBounce 2s ease-in-out infinite;
+}
+
+.footer-hearts span:nth-child(1) { animation-delay: 0s; }
+.footer-hearts span:nth-child(2) { animation-delay: 0.2s; }
+.footer-hearts span:nth-child(3) { animation-delay: 0.4s; }
+.footer-hearts span:nth-child(4) { animation-delay: 0.6s; }
+.footer-hearts span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes heartBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .title-line.heart {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .photo-card {
+        min-width: 200px;
+        height: 280px;
+    }
+    
+    .netflix-logo {
+        font-size: 3rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .modal-photo {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .play-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .photo-card {
+        min-width: 180px;
+        height: 250px;
+    }
+    
+    .row-content {
+        gap: 10px;
+    }
+}
+
+/* Animações adicionais */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
